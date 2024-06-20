@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Calculator</h1>
+        <div>
+            <button onclick="setCalculationType('source')">Calculate Source Temperature</button>
+            <button onclick="setCalculationType('ambient')">Calculate Ambient Temperature</button>
+        </div>
+        <form id="temperature-form">
+            <div id="temp-input">
+                <!-- These inputs will be dynamically updated based on calculation type -->
+            </div>
+            <div>
+                <label for="length">Length of PCB (m):</label>
+                <input type="number" id="length" name="length" step="0.01" required>
+            </div>
+            <div>
+                <label for="breadth">Breadth of PCB (m):</label>
+                <input type="number" id="breadth" name="breadth" step="0.01" required>
+            </div>
+            <div>
+                <label for="thickness">Thickness of PCB (m):</label>
+                <input type="number" id="thickness" name="thickness" step="0.01" required>
+            </div>
+            <div>
+                <label for="material">Thermal Conductivity (k):</label>
+                <select id="material" name="material" required>
+                    <option value="1.38">FR4 - 1.38 W/m·K</option>
+                    <option value="0.25">CEM-1 - 0.25 W/m·K</option>
+                    <option value="0.29">CEM-3 - 0.29 W/m·K</option>
+                    <option value="2.24">Aluminum - 2.24 W/m·K</option>
+                </select>
+            </div>
+            <div>
+                <label for="power">Thermal Power (Watt):</label>
+                <input type="number" id="power" name="power" step="0.01" required>
+            </div>
+            <button type="button" onclick="calculate()">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
